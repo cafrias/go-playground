@@ -17,16 +17,11 @@ func partition(arr []int, low int, high int) int {
 		}
 	}
 
-	pivotIdx := low
-	for arr[pivotIdx] <= arr[pickedPivot] && pivotIdx < high {
-		pivotIdx++
-	}
-
 	aux := arr[pickedPivot]
-	arr[pickedPivot] = arr[pivotIdx]
-	arr[pivotIdx] = aux
+	arr[pickedPivot] = arr[smallerIdx]
+	arr[smallerIdx] = aux
 
-	return pivotIdx
+	return smallerIdx
 }
 
 func qs(arr []int, low int, high int) {
