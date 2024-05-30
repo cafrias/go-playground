@@ -1,6 +1,6 @@
 package binarytree
 
-type BinaryTree[T any] struct {
+type BinaryTree[T comparable] struct {
 	Value T
 	Left  *BinaryTree[T]
 	Right *BinaryTree[T]
@@ -58,4 +58,24 @@ func (t *BinaryTree[T]) PostOrder() []T {
 	result := make([]T, 0)
 	result = t.postTraverse(result)
 	return result
+}
+
+func compare[T comparable](a *BinaryTree[T], b *BinaryTree[T]) bool {
+	if a == nil && b == nil {
+		return true
+	}
+
+	if a == nil || b == nil {
+		return false
+	}
+
+	if a.Value != b.Value {
+		return false
+	}
+
+	return compare[T](a.Left, b.Left) && compare[T](a.Right, b.Right)
+}
+
+func (t *BinaryTree[T]) Equals(tree *BinaryTree[T]) bool {
+	return compare[T](t, tree)
 }
