@@ -1,3 +1,3 @@
-module algo-practice
+module go-playground
 
 go 1.22.2

@@ -1,8 +1,8 @@
 package bfs
 
 import (
-	"algo-practice/queue"
 	"fmt"
+	"go-playground/data-structures/queue"
 )
 
 func BFS(graph map[string][]string, start string) ([]string, error) {
