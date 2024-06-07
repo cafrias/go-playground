@@ -43,6 +43,9 @@ func (m *MinHeap[V, H]) Delete() (H, error) {
 	popped := m.Items[0]
 	m.Items[0] = m.Items[lastIdx]
 	m.Items = m.Items[:lastIdx]
+	if len(m.Items) == 0 {
+		return popped, nil
+	}
 
 	cIdx := 0
 	cVal := m.Items[0].Value()
