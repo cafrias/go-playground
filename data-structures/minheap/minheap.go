@@ -83,3 +83,7 @@ func (m *MinHeap[V, H]) Delete() (H, error) {
 
 	return popped, nil
 }
+
+func (m *MinHeap[V, H]) Length() int {
+	return len(m.Items)
+}
