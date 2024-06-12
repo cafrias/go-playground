@@ -36,7 +36,6 @@ func matrixBFS(matrix AdjacencyMatrix, start int, needle int) ([]int, error) {
 		}
 
 		if curr == needle {
-			// return prev, nil
 			path := make([]int, 0, len(matrix))
 			for i := needle; prev[i] != -1; i = prev[i] {
 				path = append(path, prev[i])
